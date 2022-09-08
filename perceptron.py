@@ -23,5 +23,5 @@ class Perceptron:
         output_prev = self.propagate(inputs)
         self.weights = [W + X * self.learningRate * (output - output_prev) for (W, X) in zip(self.weights, inputs)]
         self.bias = self.bias + self.learningRate * (output - output_prev)
-        error_calculation = np.abs(output_prev - output)
-        return error_calculation
+        error = np.abs(output_prev - output)
+        return error
