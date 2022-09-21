@@ -20,7 +20,7 @@ class Perceptron:
         return self.activate(propagate_signal)
     
     def train(self, inputs, output):
-        output_prev = self.propagate(inputs)
+        output_prev = self.propagation(inputs)
         self.weights = [W + X * self.learningRate * (output - output_prev) for (W, X) in zip(self.weights, inputs)]
         self.bias = self.bias + self.learningRate * (output - output_prev)
         error = np.abs(output_prev - output)
