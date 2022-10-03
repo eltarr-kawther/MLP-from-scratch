@@ -19,7 +19,7 @@ class Perceptron:
         """
         This is the Axon method
         """
-        propagated_signal = np.dot(self.weights, inputs) + self.bias
+        propagated_signal = np.dot(inputs, self.weights) + self.bias
         return self.Activation(propagated_signal)
     
     def Learning(self, inputs, output):
