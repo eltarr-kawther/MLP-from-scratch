@@ -1,6 +1,6 @@
 import numpy as np
 
-class Neuron:
+class Perceptron:
     def __init__(self, weights, bias, learningRate) -> None:
         self.weights = weights
         self.bias = bias
