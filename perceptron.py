@@ -10,10 +10,11 @@ class Perceptron:
         """
         This is the Soma method
         """
-        if signal > 0:
-            return 1
-        else:
-            return 0
+        #if signal > 0:
+        #    return 1
+        #else:
+        #    return 0
+        return np.where(signal>0, 1, 0)
     
     def Propagation(self, inputs):
         """
