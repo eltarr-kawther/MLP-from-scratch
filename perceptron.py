@@ -24,7 +24,7 @@ class Neuron:
     
     def Learning(self, inputs, output):
         """
-        This is how a neuron learns
+        This is how a Neuron learns
         """
         prev_output = self.Propagation(inputs)
         self.weights = [W + X*self.learningRate*(output - prev_output) for (W, X) in zip(self.weights, inputs)]
