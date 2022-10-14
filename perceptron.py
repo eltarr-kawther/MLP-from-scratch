@@ -1,7 +1,7 @@
 import numpy as np
 
 class Perceptron:
-    def __init__(self, weights, bias, learningRate) -> None:
+    def __init__(self, weights, bias, learningRate=0.1):
         self.weights = weights
         self.bias = bias
         self.learningRate = learningRate
@@ -24,8 +24,8 @@ class Perceptron:
         This is how a Neuron learns
         """
         initial_output = self.Propagation(inputs)
-        self.weights = self.weights + inputs * self.learningRate * (output - initial_output)
-        #self.weights = [W + X * self.learningRate * (output - initial_output) for (W, X) in zip(self.weights, inputs)]
+        self.weights = [wi + self.learningRate*(output - initial_output)*xi 
+                        for (wi, xi) in zip(self.weights, inputs)]
         self.bias = self.bias + self.learningRate*(output - initial_output)
         error = np.abs(initial_output - output)
         return error
