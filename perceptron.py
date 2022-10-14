@@ -5,6 +5,7 @@ class Perceptron:
         self.weights = weights
         self.bias = bias
         self.learningRate = learningRate
+        self.initial_output = None
     
     def Activation(self, net):
         """
@@ -23,9 +24,10 @@ class Perceptron:
         """
         This is how a Neuron learns
         """
-        initial_output = self.Propagation(inputs)
-        self.weights = [wi + self.learningRate*(output - initial_output)*xi 
+        self.initial_output = self.Propagation(inputs)
+        self.weights = [wi + self.learningRate*(output - self.initial_output)*xi 
                         for (wi, xi) in zip(self.weights, inputs)]
-        self.bias = self.bias + self.learningRate*(output - initial_output)
-        error = np.abs(initial_output - output)
+        self.bias = self.bias + self.learningRate*(output - self.initial_output)
+        error = np.abs(self.initial_output - output)
         return error
+
