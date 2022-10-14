@@ -1,1 +1,1 @@
-# MLP-from-scratch
+# Perceptron-from-scratch
